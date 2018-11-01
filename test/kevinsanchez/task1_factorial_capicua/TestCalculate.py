@@ -1,5 +1,5 @@
 import unittest
-from src.kevinsanchez.Calculate import Calculate
+from src.kevinsanchez.task1_factorial_capicua.Calculate import Calculate
 
 """
 Test for class calculate.
