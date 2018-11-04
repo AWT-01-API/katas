@@ -48,3 +48,18 @@ class TestCollectionList(unittest.TestCase):
         for value in self.collection_list:
             self.assertEqual(value, list[counter])
             counter += 1
+
+    """
+    test insert.
+    """
+    def test_insert(self):
+        self.collection_list.insert(0, 10)
+        self.assertEqual(10, self.collection_list[0])
+
+    """
+    test method clear.
+    """
+    def test_clear(self):
+        self.collection_list.clear()
+        self.assertEqual(0, len(self.collection_list))
+        self.assertTrue(self.collection_list.is_empty())
