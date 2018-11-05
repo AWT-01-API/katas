@@ -1,2 +1,2 @@
 # TEsting Sonar
-print "Testing SonarCloud"
+print("Testing SonarCloud")
