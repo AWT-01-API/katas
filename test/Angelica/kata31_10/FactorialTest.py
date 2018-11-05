@@ -9,6 +9,3 @@ class TestFactorialMethods(unittest.TestCase):
 
     def test_factorial_1(self):
         self.assertEqual(factorial(3), 6)
-
-    if __name__ == '__main__':
-        unittest.main()
