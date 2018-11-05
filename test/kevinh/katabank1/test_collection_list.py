@@ -15,6 +15,8 @@ class TestCollectionList(unittest.TestCase):
         collection_list = CollectionList()
         collection_list.append(3)
         collection_list.append(4)
+        collection_list.append(5)
+        collection_list.append(6)
         self.assertEqual(3, collection_list[0])
         self.assertEqual(4, collection_list[1])
 
@@ -23,6 +25,8 @@ class TestCollectionList(unittest.TestCase):
         collection_list.append(3)
         collection_list.append(4)
         collection_list[1] = 100
+        collection_list[0] = 5
+        self.assertEqual(collection_list[0], 5)
         self.assertEqual(collection_list[1], 100)
 
     def test_For_Iteration(self):
@@ -32,7 +36,7 @@ class TestCollectionList(unittest.TestCase):
         collection = ""
         for value in collection_list:
             collection += str(value)
-        self.assertEqual(collection, "34")
+        self.assertEqual("34", collection)
 
 
 if __name__ == '__main__':

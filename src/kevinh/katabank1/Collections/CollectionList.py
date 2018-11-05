@@ -3,16 +3,16 @@ class Node:
         self.data = firstdata
         self.nextdata = None
 
-    def getData(self):
+    def getdata(self):
         return self.data
 
-    def getNext(self):
+    def getnext(self):
         return self.nextdata
 
-    def setData(self, newdata):
+    def setdata(self, newdata):
         self.data = newdata
 
-    def setNext(self, newnext):
+    def setnext(self, newnext):
         self.nextdata = newnext
 
 
@@ -20,23 +20,27 @@ class CollectionList:
     def __init__(self):
         self.head = None
         self.first = None
+        self.current = self.first
         pass
 
     def __iter__(self):
+        self.current = self.first
         return self
 
     def next(self):  # Python 3: def __next__(self)
-        if self.head.getNext() is None:
+        if self.current is None:
             raise StopIteration
         else:
-            return self.head
+            actual = self.current.getdata()
+            self.current = self.current.getnext()
+            return actual
 
     def __len__(self):
         actual = self.first
         count = 0
         while actual is not None:
             count += 1
-            actual = actual.getNext()
+            actual = actual.getnext()
         return count
 
     def is_empty(self):
@@ -44,9 +48,10 @@ class CollectionList:
 
     def append(self, data):
         temp = Node(data)
-        temp.setNext(self.head)
         if self.is_empty():
-            self.first = self.head
+            self.first = temp
+            self.head = self.first
+        self.head.setnext(temp)
         self.head = temp
 
     def __getitem__(self, key):
@@ -54,24 +59,20 @@ class CollectionList:
             pass
         else:
             index = 0
-            actual = self.first
-            found = False
-            while not found:
+            for item in self:
                 if index == key:
-                    found = True
-                elif actual.getNext() is not None:
-                    actual = actual.getNext()
+                    return item
                 index += 1
-            if found:
-                return actual.getData()
 
     def __setitem__(self, key, value):
-        if key < 0:
+        if key < 0 or self.is_empty():
             pass
         else:
             index = 0
-            for item in self:
+            actual = self.first
+            while index <= key:
                 if index == key:
-                    item.setData(value)
-                    return None
+                    actual.setdata(value)
+                elif actual.getnext() is not None:
+                    actual = actual.getnext()
                 index += 1
