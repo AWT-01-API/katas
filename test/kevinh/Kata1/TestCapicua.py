@@ -4,17 +4,14 @@ import unittest
 
 class TestCapicua(unittest.TestCase):
 
+    def setUp(self):
+        self.capicua = Capicua()
+
     def test_check_true(self):
-        capicua = Capicua()
-        self.assertTrue(capicua.checkWord("oruro"))
-        self.assertTrue(capicua.checkWord("radar"))
-        self.assertTrue(capicua.checkWord("arenera"))
+        self.assertTrue(self.capicua.checkword("oruro"))
+        self.assertTrue(self.capicua.checkword("radar"))
+        self.assertTrue(self.capicua.checkword("arenera"))
 
     def test_check_false(self):
-        capicua = Capicua()
-        self.assertFalse(capicua.checkWord("test"))
-        self.assertFalse(capicua.checkWord("desktop"))
-
-
-if __name__ == '__main__':
-    unittest.main()
+        self.assertFalse(self.capicua.checkword("test"))
+        self.assertFalse(self.capicua.checkword("desktop"))
