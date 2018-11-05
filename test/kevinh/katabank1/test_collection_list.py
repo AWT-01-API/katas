@@ -35,3 +35,8 @@ class TestCollectionList(unittest.TestCase):
         for value in self.collection_list:
             collection += str(value)
         self.assertEqual("34", collection)
+
+    def test_print(self):
+        self.collection_list.append(3)
+        self.collection_list.append(4)
+        self.assertEqual("[3, 4]", str(self.collection_list))

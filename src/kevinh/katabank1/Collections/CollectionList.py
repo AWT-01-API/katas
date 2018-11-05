@@ -1,19 +1,22 @@
 class Node:
     def __init__(self, firstdata):
         self.data = firstdata
-        self.nextdata = None
+        self.nextnode = None
 
     def getdata(self):
         return self.data
 
     def getnext(self):
-        return self.nextdata
+        return self.nextnode
 
     def setdata(self, newdata):
         self.data = newdata
 
     def setnext(self, newnext):
-        self.nextdata = newnext
+        self.nextnode = newnext
+
+    def __str__(self):
+        return str(self.data)
 
 
 class CollectionList:
@@ -76,3 +79,10 @@ class CollectionList:
                 elif actual.getnext() is not None:
                     actual = actual.getnext()
                 index += 1
+
+    def __repr__(self):
+        separator = ", "
+        collection_as_str = CollectionList()
+        for item in self:
+            collection_as_str.append(str(item))
+        return "[" + separator.join(collection_as_str) + "]"
