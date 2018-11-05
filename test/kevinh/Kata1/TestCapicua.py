@@ -12,7 +12,8 @@ class TestCapicua(unittest.TestCase):
 
     def test_check_false(self):
         capicua = Capicua()
-        self.assertTrue(capicua.checkWord("test"))
+        self.assertFalse(capicua.checkWord("test"))
+        self.assertFalse(capicua.checkWord("desktop"))
 
 
 if __name__ == '__main__':
