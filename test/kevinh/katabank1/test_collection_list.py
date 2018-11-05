@@ -11,7 +11,7 @@ class TestCollectionList(unittest.TestCase):
         collection_list.append(4)
         self.assertEqual(2, len(collection_list))
 
-    def test_getElement(self):
+    def test_get_element(self):
         collection_list = CollectionList()
         collection_list.append(3)
         collection_list.append(4)
@@ -20,7 +20,7 @@ class TestCollectionList(unittest.TestCase):
         self.assertEqual(3, collection_list[0])
         self.assertEqual(4, collection_list[1])
 
-    def test_setElementAtIndex(self):
+    def test_set_element_at_index(self):
         collection_list = CollectionList()
         collection_list.append(3)
         collection_list.append(4)
@@ -29,7 +29,7 @@ class TestCollectionList(unittest.TestCase):
         self.assertEqual(collection_list[0], 5)
         self.assertEqual(collection_list[1], 100)
 
-    def test_For_Iteration(self):
+    def test_for_iteration(self):
         collection_list = CollectionList()
         collection_list.append(3)
         collection_list.append(4)
