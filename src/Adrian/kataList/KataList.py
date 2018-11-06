@@ -44,6 +44,8 @@ class KataList (object):
                 element = element.get_next_node()
             element.set_next_node(new_node)
             element.index += 1
+            new_element = element.get_next_node()
+            new_element.set_prev_node(element)
 
     """
     STAGE 2.
@@ -136,16 +138,21 @@ class KataList (object):
     STAGE 6:
     Remove an element from a given position
     """
-    def remove(self, value):
+    def remove(self, element):
 
         current_element = self.head
         if self.is_empty():
             raise OverflowError("List is empty")
+        elif len(self) == 1:
+            self.clear()
         else:
-            while (current_element.get_next_node() is not None) and (value is not current_element):
+            while current_element.get_next_node() is not None:
                 current_element = current_element.get_next_node()
-            before_element = current_element.get_prev_node
-            before_element.set_next_node(current_element.get_next_node())
+                if current_element.get_data() == element:
+                    new_next_element = current_element.get_next_node()
+                    current_element = current_element.get_prev_node()
+                    current_element.set_next_node(new_next_element)
+                    break
 
     """
     Stage 7:
@@ -155,13 +162,41 @@ class KataList (object):
         self.head = None
 
     """
+    Formats the list
+    """
+    def formatted(self):
+
+        formatted = '['
+        i = 0
+        k = len(self)
+        for value in self:
+            formatted += str(value)
+            if i < k - 1:
+                formatted += ', '
+            i += 1
+        formatted += ']'
+        return formatted
+
+    """
     Stage 8:
-    Prints the list
+    Print list
     """
     def __print__(self):
-        print '[',
-        for value in self:
-            print value,
-            if self.next:
-                print ', ',
-        print ']'
+        print self.formatted()
+
+    """
+    Stage 9:
+    Reverse list
+    """
+    def reverse(self):
+        last_element = self.head
+        reversed_list = KataList()
+        if self.is_empty():
+            raise OverflowError("List is empty")
+        else:
+            while last_element.get_next_node() is not None:
+                last_element.get_next_node()
+            while last_element.get_prev_node() is not None:
+                reversed_list.append(last_element.get_data())
+                last_element.get_prev_node()
+        return reversed_list

@@ -8,7 +8,7 @@ class TestKataList(TestCase):
         self.list_to_test = KataList()
         self.list_to_test.append(1)
         self.list_to_test.append(2)
-        self.list_to_test.append('three')
+        self.list_to_test.append("'three'")
 
     def test_len(self):
         self.assertEqual(len(self.list_to_test), 3)
@@ -22,18 +22,16 @@ class TestKataList(TestCase):
 
     def test_insert(self):
         inserted = [1, 2, 3, 'three']
-        counter = 0
         self.list_to_test.__print__()
-
-        test = self.list_to_test.insert(1, 3)
-        for value in self.list_to_test:
-            self.assertEqual(value, inserted[counter])
-            counter += 1
+        self.list_to_test.insert(1, 3)
+        self.assertEqual(str(inserted), self.list_to_test.formatted())
 
     def test_remove(self):
         removed = [1, 'three']
-        counter = 0
-        test = self.list_to_test.remove(2)
-        for value in self.list_to_test:
-            self.assertEqual(value, removed[counter])
-            counter += 1
+        self.list_to_test.remove(2)
+        self.assertEqual(self.list_to_test.formatted(), str(removed))
+
+    def test_reverse(self):
+        reversed_list = ['three', 2, 1]
+        self.assertEqual(self.list_to_test.reverse(), str(reversed_list))
+
