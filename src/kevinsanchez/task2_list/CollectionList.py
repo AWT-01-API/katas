@@ -41,9 +41,7 @@ class CollectionList(object):
             helper = self.head
             if item is 0:
                 return helper.get_data()
-            counter = 0
-            while (helper.get_next_node() is not None) and (item is not counter):
-                counter += 1
+            while (helper.get_next_node() is not None) and (item is not helper.get_index()):
                 helper = helper.get_next_node()
             return helper.get_data()
 
@@ -59,9 +57,7 @@ class CollectionList(object):
             helper = self.head
             if key is 0:
                 helper.set_data(value)
-            counter = 0
-            while (helper.next_node is not None) and (key is not counter):
-                counter += 1
+            while (helper.next_node is not None) and (key is not helper.get_index()):
                 helper = helper.get_next_node()
             helper.set_data(value)
 
@@ -75,8 +71,11 @@ class CollectionList(object):
             self.head = new_node
         else:
             helper = self.head
+            counter = 1
             while helper.get_next_node() is not None:
                 helper = helper.get_next_node()
+                counter += 1
+            new_node.set_index(counter)
             helper.set_next_node(new_node)
 
     """
@@ -121,9 +120,8 @@ class CollectionList(object):
             new_node.set_next_node(helper_head)
         else:
             helper_node = self.head
-            while (helper_node.get_next_node() is not None) and (counter is not position):
+            while (helper_node.get_next_node() is not None) and (helper_node.get_index() is not position):
                 helper_node = helper_node.get_next_node()
-                counter += 1
             new_node.set_next_node(helper_node.get_next_node())
             helper_node.set_next_node(new_node)
 
@@ -132,3 +130,50 @@ class CollectionList(object):
     """
     def clear(self):
         self.head = None
+
+    """
+    remove the value from the list.
+    :param value to remove.
+    """
+    def remove(self, value):
+        if self.is_empty():
+            return None
+        else:
+            helper_node = self.head
+            if helper_node.get_data() is value:
+                self.head = helper_node.get_next_node()
+                return helper_node
+            else:
+                while (helper_node.get_next_node().get_next_node() is not None) and (value is not helper_node.get_next_node().get_data()):
+                    helper_node = helper_node.get_next_node()
+                node_removed = helper_node.get_next_node()
+                helper_node.set_next_node(node_removed.get_next_node())
+                return node_removed
+
+    """
+    print the collection.
+    """
+    def __str__(self):
+        string = "["
+        if self.is_empty():
+            return "{0}]".format(string)
+        else:
+            helper_node = self.head
+            while helper_node.get_next_node() is not None:
+                string += "{0}, ".format(str(helper_node.get_data()))
+                helper_node = helper_node.get_next_node()
+            return "{0}{1}]".format(string, str(helper_node.get_data()))
+
+    """
+    count amount of elements equals
+    to value.
+    :param value to search.
+    """
+    def count(self, value):
+        counter = 0
+        helper_node = self.head
+        while helper_node is not None:
+            if helper_node.get_data() is value:
+                counter += 1
+            helper_node = helper_node.get_next_node()
+        return counter
