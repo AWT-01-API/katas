@@ -110,7 +110,6 @@ class CollectionList(object):
     :param value
     """
     def insert(self, position, value):
-        counter = 1
         new_node = Node(value)
         if self.is_empty():
             return None
