@@ -54,6 +54,7 @@ class TestCollectionList(unittest.TestCase):
     """
     def test_insert(self):
         self.collection_list.insert(0, 10)
+        print (self.collection_list)
         self.assertEqual(10, self.collection_list[0])
 
     """
@@ -83,3 +84,8 @@ class TestCollectionList(unittest.TestCase):
     def test_count(self):
         self.collection_list.append(3)
         self.assertEqual(2, self.collection_list.count(3))
+
+    def test_reverse(self):
+        print (self.collection_list)
+        self.collection_list.reverse()
+        print (self.collection_list)
