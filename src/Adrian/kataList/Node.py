@@ -8,6 +8,8 @@ class Node:
     def __init__(self, start_data):
         self.data = start_data
         self.next_node = None
+        self.previous_node = None
+        self.index = 0
     """
     Get Node data.
     """
@@ -18,6 +20,12 @@ class Node:
     """
     def get_next_node(self):
         return self.next_node
+
+    """
+    Get previous Node data.
+    """
+    def get_prev_node(self):
+        return self.previous_node
 
     """
     Replace current data.
