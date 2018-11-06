@@ -37,15 +37,14 @@ class KataList (object):
         new_node = Node(value)
         if self.is_empty():
             self.head = new_node
-            self.index = 1
         else:
             element = self.head
             while element.get_next_node() is not None:
                 element = element.get_next_node()
             element.set_next_node(new_node)
-            element.index += 1
             new_element = element.get_next_node()
             new_element.set_prev_node(element)
+            new_element.index = element.index + 1
 
     """
     STAGE 2.
@@ -195,8 +194,21 @@ class KataList (object):
             raise OverflowError("List is empty")
         else:
             while last_element.get_next_node() is not None:
-                last_element.get_next_node()
-            while last_element.get_prev_node() is not None:
+                last_element = last_element.get_next_node()
+            i = last_element.index
+            while i >= 0:
                 reversed_list.append(last_element.get_data())
-                last_element.get_prev_node()
+                last_element = last_element.get_prev_node()
+                i -= 1
         return reversed_list
+
+    """
+    STAGE 10:
+    Count element appearances
+    """
+    def count(self, element):
+        counter = 0
+        for value in self:
+            if value == element:
+                counter += 1
+        return counter

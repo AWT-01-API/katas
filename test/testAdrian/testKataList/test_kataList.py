@@ -33,5 +33,9 @@ class TestKataList(TestCase):
 
     def test_reverse(self):
         reversed_list = ['three', 2, 1]
-        self.assertEqual(self.list_to_test.reverse(), str(reversed_list))
+        self.list_to_test = self.list_to_test.reverse()
+        self.assertEqual(self.list_to_test.formatted(), str(reversed_list))
+
+    def test_count(self):
+        self.assertEqual(1, self.list_to_test.count(2))
 
