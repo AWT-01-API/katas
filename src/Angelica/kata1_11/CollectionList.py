@@ -1,15 +1,52 @@
-from src.Angelica.kata1_11.ObjectType import ObjectType
+from src.Angelica.kata1_11.Node import Node
 
-
-class CollectionList(object):
+class CollectionList:
 
     def __init__(self):
-        self.data = None
+        self.length = 0
+        self.head = None
 
-    def append(self, t_object):
-        index = 0
-        if self.data is None:
-            self.data = ObjectType(index, t_object)
-        elif self.data.temp_data is None:
-            index = self.data.data[0]
-            self.data.temp_data = ObjectType(index + 1, t_object)
+    def append(self, item):
+        node = Node(item)
+        node.next = self.head
+        self.head = node
+        self.length = self.length + 1
+
+    def __getitem__(self, item):
+        if not self.head:
+            return None
+        else:
+            iter_node = self.head
+            pos = item
+            while pos > 0 and iter_node.next:
+                iter_node = iter_node.next
+                pos -= 1
+            return iter_node.next
+
+    def __setitem__(self, key, value):
+        pos = 0
+        item = self.head
+        while item is not None:
+            if pos != key:
+                item.next
+                pos += 1
+            else:
+                item.next = value
+                self.append(item)
+                return
+
+    def __len__(self):
+        return self.length
+
+    def __iter__(self):
+        self.index = 0
+        return self
+
+    def __next__(self):
+        if self.index < self.length:
+            item = self.head
+            self.index += 1
+            return item.next
+        raise StopIteration
+        return self.head
+        self.index += 1
