@@ -1,5 +1,5 @@
 
-from src.kevinsanchez.kata_bank.File_route import File_route
+from src.kevinsanchez.kata_bank.FileRoute import FileRoute
 """
 convert from |_ to numbers.
 """
@@ -58,7 +58,7 @@ class Convert:
     :return a list with rows of the file.
     """
     def read(self):
-        find_route = File_route()
+        find_route = FileRoute()
         file_to_read = open(find_route.find(), 'r')
         content = file_to_read.readlines()
         file_to_read.close()

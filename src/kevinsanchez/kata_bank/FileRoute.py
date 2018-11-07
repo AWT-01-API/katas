@@ -3,7 +3,7 @@ import os
 """
 class to help find route of source file.
 """
-class File_route:
+class FileRoute:
 
     """
     method which find the route
