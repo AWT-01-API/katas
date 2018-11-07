@@ -1,5 +1,5 @@
 from unittest import TestCase
-from Adrian.kataList.KataList import KataList
+from src.Adrian.kataList.KataList import KataList
 
 
 class TestKataList(TestCase):
@@ -12,13 +12,6 @@ class TestKataList(TestCase):
 
     def test_len(self):
         self.assertEqual(len(self.list_to_test), 3)
-
-    def test_iter(self):
-        same = [1, 2, 'three']
-        counter = 0
-        for value in self.list_to_test:
-            self.assertEqual(value, same[counter])
-            counter += 1
 
     def test_insert(self):
         inserted = [1, 2, 3, 'three']
