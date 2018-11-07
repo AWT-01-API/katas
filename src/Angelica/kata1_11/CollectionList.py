@@ -49,7 +49,6 @@ class CollectionList:
             return item.next
         raise StopIteration
         return self.head
-        self.index += 1
 
     def remove(self,node):
         if node == None: return
