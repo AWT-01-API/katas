@@ -1,4 +1,8 @@
+"""
+convert from |_ to numbers.
+"""
 class Convert:
+
     """
     traslate matrix into numbers.
     :param matrix from read.
@@ -52,7 +56,7 @@ class Convert:
     :return a list with rows of the file.
     """
     def read(self):
-        file_to_read = open('../../../source_data.txt', 'r')
+        file_to_read = open("source_data.txt", 'r')
         content = file_to_read.readlines()
         file_to_read.close()
         return content
