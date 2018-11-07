@@ -162,7 +162,7 @@ class KataList (object):
     """
     def formatted(self):
 
-        formattegit d = '['
+        formatted = '['
         i = 0
         k = len(self)
         for value in self:
