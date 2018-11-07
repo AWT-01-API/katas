@@ -6,7 +6,7 @@ test class.
 class TestConvert(unittest.TestCase):
 
     """
-    setpup.
+    setup.
     """
     def setUp(self):
         self.convert = Convert()
