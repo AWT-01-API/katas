@@ -1,4 +1,4 @@
-from Adrian.Class03Katas import Class03Katas
+from Adrian.class03Katas import Class03Katas
 
 from unittest import TestCase
 
