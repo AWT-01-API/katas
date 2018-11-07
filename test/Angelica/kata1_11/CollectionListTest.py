@@ -27,3 +27,9 @@ class CollectionListTest(unittest.TestCase):
         for value in self.collection_list:
             print(value)
 
+    def test_print_format(self):
+        self.collection_list.print_backward()
+
+    def test_print_format(self):
+        actual = self.collection_list.remove(2)
+        self.assertEqual(str(3), str(actual))

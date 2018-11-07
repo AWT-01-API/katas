@@ -50,3 +50,20 @@ class CollectionList:
         raise StopIteration
         return self.head
         self.index += 1
+
+    def remove(self,node):
+        if node == None: return
+        second = self.head
+        node = second.next
+        second.next = None
+        return node
+
+    def print_backward(self):
+        print ("[")
+        if self.head != None:
+            self.head.print_backward()
+        print ("]")
+
+    def clear(self):
+        self.head = None
+
