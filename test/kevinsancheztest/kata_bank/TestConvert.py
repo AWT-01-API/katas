@@ -3,8 +3,6 @@ from src.kevinsanchez.kata_bank.Convert import Convert
 """
 test class.
 """
-
-
 class TestConvert(unittest.TestCase):
 
     """
@@ -16,4 +14,4 @@ class TestConvert(unittest.TestCase):
     test for read.
     """
     def test_read(self):
-        self.convert.read_and_translate()
+        print(self.convert.extract())
