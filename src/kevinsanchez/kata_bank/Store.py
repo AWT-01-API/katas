@@ -1,5 +1,4 @@
-from kevinsanchez.kata_bank.Convert import Convert
-from kevinsanchez.kata_bank.Checksum import Checksum
+from src.kevinsanchez.kata_bank.Checksum import Checksum
 
 class Store:
 
