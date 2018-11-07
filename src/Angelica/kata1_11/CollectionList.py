@@ -47,7 +47,6 @@ class CollectionList:
             item = self.head
             self.index += 1
             return item.next
-        raise StopIteration
         return self.head
 
     def remove(self,node):
