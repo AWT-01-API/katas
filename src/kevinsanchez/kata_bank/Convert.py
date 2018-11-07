@@ -1,4 +1,4 @@
-
+from src.kevinsanchez.kata_bank.FileRoute import FileRoute
 """
 convert from |_ to numbers.
 """
@@ -61,7 +61,8 @@ class Convert:
     """
     @staticmethod
     def read():
-        file_to_read = open('../../../source_data.txt', 'r')
+        find_route = FileRoute()
+        file_to_read = open(find_route.find(), 'r')
         content = file_to_read.readlines()
         file_to_read.close()
         return content

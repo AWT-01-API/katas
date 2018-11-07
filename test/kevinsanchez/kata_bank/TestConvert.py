@@ -11,7 +11,7 @@ class TestConvert(unittest.TestCase):
     """
     def setUp(self):
         self.convert = Convert()
-
+        
     """
     test for extract method.
     """
