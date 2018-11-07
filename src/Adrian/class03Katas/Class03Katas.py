@@ -1,13 +1,9 @@
 class Class03ExpandedForm:
 
-    def __init__(self):
-        pass
-
     @staticmethod
     def expanded_form(num):
         string = ''
         i = 1
-        z = ""
         counter = 0
         digits = []
         while num > 0:
@@ -26,9 +22,6 @@ class Class03ExpandedForm:
 
 
 class Class03ReverseAlternate:
-
-    def __init__(self):
-        pass
 
     @staticmethod
     def reverse_alternate(string):
