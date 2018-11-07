@@ -10,4 +10,4 @@ class FileRoute:
     """
     def find(self):
         string = os.getcwd() + '\\source_data.txt'
-        return string.replace("\\", "/")
+        return string
