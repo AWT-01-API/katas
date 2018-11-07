@@ -1,4 +1,4 @@
-from Adrian.kataList.Node import Node
+from src.Adrian.kataList.Node import Node
 
 """
 Kata list.
@@ -105,14 +105,11 @@ class KataList (object):
     """
 
     def prev(self):
-        if self.is_empty() or (self.element.get_prev_node() is None):
+        if self.is_empty() or (self.element.get_prev_node() is None) or (self.index is 0):
             raise StopIteration
         else:
-            if self.index is 0:
-                raise StopIteration
-            else:
-                self.element = self.element.get_prev_node()
-                return self.element.get_data()
+            self.element = self.element.get_prev_node()
+            return self.element.get_data()
     """
     STAGE 5:
     Insert an element in between the list
@@ -181,7 +178,7 @@ class KataList (object):
     Print list
     """
     def __print__(self):
-        print self.formatted()
+        print(self.formatted())
 
     """
     Stage 9:

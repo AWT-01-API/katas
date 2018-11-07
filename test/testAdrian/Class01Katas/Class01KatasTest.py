@@ -1,6 +1,6 @@
 from unittest import TestCase
-from Adrian.class01.Class01Katas import Class01Factorial
-from Adrian.class01.Class01Katas import Class01Palindrome
+from src.Adrian.class01.Class01Katas import Class01Factorial
+from src.Adrian.class01.Class01Katas import Class01Palindrome
 
 
 class TestKata1(TestCase):
