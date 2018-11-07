@@ -1,4 +1,3 @@
-
 from src.kevinsanchez.kata_bank.FileRoute import FileRoute
 """
 convert from |_ to numbers.
@@ -6,11 +5,11 @@ convert from |_ to numbers.
 class Convert:
 
     """
-    traslate matrix into numbers.
+    translate matrix into numbers.
     :param matrix from read.
     :return string with the number.
     """
-    def traslate(self, matrix):
+    def translate(self, matrix):
         row = 0
         final_list = []
         map_numbers = {"165": "0",
@@ -84,5 +83,4 @@ class Convert:
                 counter -= 1
             matrix.append(row_matrix)
             row_counter += 1
-        return self.traslate(matrix)
-
+        return self.translate(matrix)
