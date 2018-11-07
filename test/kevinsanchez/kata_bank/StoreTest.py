@@ -12,7 +12,7 @@ class TestStore(unittest.TestCase):
     def setUp(self):
         self.convert = Convert()
     """
-    test for read.
+    test for write a new file.
     """
-    def test_read(self):
+    def test_write(self):
         Store.store_data(self.convert.extract())

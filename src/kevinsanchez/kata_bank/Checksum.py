@@ -1,5 +1,13 @@
+"""
+class for checksum.
+"""
 class Checksum:
 
+    """
+    method which calculate the checksum.
+    :param number to check.
+    :return true is success.
+    """
     @staticmethod
     def calculate(number):
         counter = 1
