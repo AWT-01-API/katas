@@ -10,6 +10,8 @@ class TestConvert(unittest.TestCase):
     """
     def setUp(self):
         self.convert = Convert()
-
+    """
+    test for read.
+    """
     def test_read(self):
-        self.convert.read()
+        self.convert.readAndTraslate()
