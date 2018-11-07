@@ -14,4 +14,4 @@ class TestConvert(unittest.TestCase):
     test for read.
     """
     def test_read(self):
-        self.convert.readAndTraslate()
+        print(self.convert.extract())

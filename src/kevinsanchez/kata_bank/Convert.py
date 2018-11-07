@@ -1,95 +1,81 @@
 class Convert:
     """
-    traslate matrix into nnnumbers.
+    traslate matrix into numbers.
     :param matrix from read.
     :return string with the number.
     """
     def traslate(self, matrix):
-        j = 0
-        list = []
-        while j < len(matrix):
-            i = 0
+        row = 0
+        final_list = []
+        map_numbers = {"165": "0",
+                       "022": "1",
+                       "134": "2",
+                       "133": "3",
+                       "052": "4",
+                       "143": "5",
+                       "145": "6",
+                       "122": "7",
+                       "155": "8",
+                       "153": "9"}
+        while row < len(matrix):
+            column = 0
             string = ""
-            while i < 9:
-                if matrix[j][i] is 1 and matrix[j+1][i] is 5 and matrix[j+2][i] is 4:
-                    string += "0"
-                if matrix[j][i] is 0 and matrix[j+1][i] is 1 and matrix[j+2][i] is 1:
-                    string += "1"
-                if matrix[j][i] is 1 and matrix[j+1][i] is 2 and matrix[j+2][i] is 3:
-                    string += "2"
-                if matrix[j][i] is 1 and matrix[j+1][i] is 2 and matrix[j+2][i] is 2:
-                    string += "3"
-                if matrix[j][i] is 0 and matrix[j+1][i] is 4 and matrix[j+2][i] is 1:
-                    string += "4"
-                if matrix[j][i] is 1 and matrix[j+1][i] is 3 and matrix[j+2][i] is 2:
-                    string += "5"
-                if matrix[j][i] is 1 and matrix[j+1][i] is 3 and matrix[j+2][i] is 4:
-                    string += "6"
-                if matrix[j][i] is 1 and matrix[j+1][i] is 1 and matrix[j+2][i] is 1:
-                    string += "7"
-                if matrix[j][i] is 1 and matrix[j+1][i] is 4 and matrix[j+2][i] is 4:
-                    string += "8"
-                if matrix[j][i] is 1 and matrix[j+1][i] is 4 and matrix[j+2][i] is 2:
-                    string += "9"
-                i += 1
-            list.append(string)
-            j += 3
-        return list
+            while column < 9:
+                key = matrix[row][column] + matrix[row+1][column] + matrix[row+2][column]
+                if key in map_numbers:
+                    string += map_numbers.get(key)
+                else:
+                    string += "?"
+                column += 1
+            final_list.append(string)
+            row += 3
+        return final_list
 
     """
-    read and set the matrix.
-    :return a list with the number from the file.
+    compare the patter found.
+    :return the value given to the pattern.
+    """
+    def compare(self, string):
+        map_pattern = {"   ": "0",
+                       " _ ": "1",
+                       "  |": "2",
+                       " _|": "3",
+                       "|_ ": "4",
+                       "|_|": "5",
+                       "| |": "6"}
+
+        if string in map_pattern:
+            return map_pattern.get(string)
+
+    """
+    read the file.
+    :return a list with rows of the file.
     """
     def read(self):
-        f = open('../../../source_data.txt', 'r')
-        content = f.readlines()
+        file_to_read = open('../../../source_data.txt', 'r')
+        content = file_to_read.readlines()
+        file_to_read.close()
+        return content
+
+    """
+    this method extract rows except blank spaces.
+    :return a list with final number.
+    """
+    def extract(self):
         matrix = []
-        i = 1
-        j = 0
-        while j < len(content):
-            if (j is not 0) and ((j+1)%4 is 0):
-                j += 1
-            row = content[j]
+        row_counter = 0
+        content = self.read()
+        while row_counter < len(content):
+            if (row_counter is not 0) and ((row_counter + 1) % 4 is 0):
+                row_counter += 1
+            row = content[row_counter]
             counter = 9
             row_matrix = []
             while counter > 0:
-                if i is 1:
-                    if row[:3].__contains__(" _ ") or row[:3].__contains__(" _"):
-                        row_matrix.append(1)
-                    else:
-                        row_matrix.append(0)
-                if i is 2:
-                    if row[:3].__contains__("  |"):
-                        row_matrix.append(1)
-                    if row[:3].__contains__(" _|"):
-                        row_matrix.append(2)
-                    if row[:3].__contains__("|_ "):
-                        row_matrix.append(3)
-                    if row[:3].__contains__("|_|"):
-                        row_matrix.append(4)
-                    if row[:3].__contains__("| |"):
-                        row_matrix.append(5)
-                if i is 3:
-                    if row[:3].__contains__("  |"):
-                        row_matrix.append(1)
-                    if row[:3].__contains__(" _|"):
-                        row_matrix.append(2)
-                    if row[:3].__contains__("|_ "):
-                        row_matrix.append(3)
-                    if row[:3].__contains__("|_|"):
-                        row_matrix.append(4)
+                row_matrix.append(self.compare(row[:3]))
                 row = row[3:]
                 counter -= 1
-            i += 1
-            if i is 4:
-                i = 1
             matrix.append(row_matrix)
-            j += 1
-        f.close()
+            row_counter += 1
         return self.traslate(matrix)
 
-    """
-    main method.
-    """
-    def readAndTraslate(self):
-        print(self.read())
