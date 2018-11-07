@@ -143,7 +143,8 @@ class CollectionList(object):
                 self.head = helper_node.get_next_node()
                 return helper_node
             else:
-                while (helper_node.get_next_node().get_next_node() is not None) and (value is not helper_node.get_next_node().get_data()):
+                while (helper_node.get_next_node().get_next_node() is not None) and \
+                        (value is not helper_node.get_next_node().get_data()):
                     helper_node = helper_node.get_next_node()
                 node_removed = helper_node.get_next_node()
                 helper_node.set_next_node(node_removed.get_next_node())
@@ -176,3 +177,15 @@ class CollectionList(object):
                 counter += 1
             helper_node = helper_node.get_next_node()
         return counter
+      
+    """
+    reverse method not final.
+    """
+    def reverse(self):
+        new_list = CollectionList()
+        if not self.is_empty():
+            new_list.append(self.head.get_data())
+            helper_node = self.head.get_next_node()
+            while helper_node is not None:
+                new_list.insert(0,helper_node.get_data())
+                helper_node = helper_node.get_next_node()
