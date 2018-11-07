@@ -1,5 +1,5 @@
 import unittest
-from kevinsanchez.kata_bank.Checksum import Checksum
+from src.kevinsanchez.kata_bank.Checksum import Checksum
 
 
 class ChecksumTest(unittest.TestCase):

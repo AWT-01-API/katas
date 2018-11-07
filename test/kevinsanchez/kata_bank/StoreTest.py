@@ -15,4 +15,4 @@ class TestStore(unittest.TestCase):
     test for read.
     """
     def test_read(self):
-        Store.store_data(self.convert.read())
+        Store.store_data(self.convert.extract())
