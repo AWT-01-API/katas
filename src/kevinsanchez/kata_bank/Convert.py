@@ -47,7 +47,7 @@ class Convert:
         i = 1
         j = 0
         while j < len(content):
-            if (j is not 0) and ((j+1)%4 is 0):
+            if (j is not 0) and ((j+1) % 4 is 0):
                 j += 1
             row = content[j]
             counter = 9
@@ -91,5 +91,5 @@ class Convert:
     """
     main method.
     """
-    def readAndTranslate(self):
+    def read_and_translate(self):
         print(self.read())
