@@ -86,3 +86,40 @@ class CollectionList:
         for item in self:
             collection_as_str.append(str(item))
         return "[" + separator.join(collection_as_str) + "]"
+
+    def insert(self, key, value):
+        temp = Node(value)
+        index = 0
+        actual = self.first
+        last = None
+        while index <= key:
+            if key >= len(self):
+                self.append(value)
+                return
+            if index >= key:
+                if index < 1:
+                    temp.setnext(actual)
+                    self.first = temp
+                else:
+                    temp.setnext(actual)
+                    last.setnext(temp)
+                return
+            elif actual.getnext() is not None:
+                last = actual
+                actual = actual.getnext()
+            index += 1
+
+    def remove(self, value):
+        index = 0
+        actual = self.first
+        last = None
+        while actual is not None:
+            if actual.getdata() == value:
+                last.setnext(actual.getnext())
+                if index == 0:
+                    self.first = last
+                return
+            else:
+                last = actual
+                actual = actual.getnext()
+            index += 1

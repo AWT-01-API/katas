@@ -40,3 +40,29 @@ class TestCollectionList(unittest.TestCase):
         self.collection_list.append(3)
         self.collection_list.append(4)
         self.assertEqual("[3, 4]", str(self.collection_list))
+
+    def test_insert_first(self):
+        self.collection_list.append(3)
+        self.collection_list.append(4)
+        self.collection_list.insert(0, 25)
+        self.assertEqual(25, self.collection_list[0])
+        self.assertEqual(3, self.collection_list[1])
+        self.assertEqual(4, self.collection_list[2])
+
+    def test_insert_middle(self):
+        self.collection_list.append(3)
+        self.collection_list.append(4)
+        self.collection_list.insert(1, 25)
+        self.assertEqual(3, self.collection_list[0])
+        self.assertEqual(25, self.collection_list[1])
+        self.assertEqual(4, self.collection_list[2])
+
+    def test_insert_last(self):
+        self.collection_list.append(3)
+        self.collection_list.append(4)
+        self.collection_list.insert(2, 25)
+        self.assertEqual(3, self.collection_list[0])
+        self.assertEqual(4, self.collection_list[1])
+        self.assertEqual(25, self.collection_list[2])
+
+
