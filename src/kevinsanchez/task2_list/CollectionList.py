@@ -177,7 +177,7 @@ class CollectionList(object):
                 counter += 1
             helper_node = helper_node.get_next_node()
         return counter
-
+      
     """
     reverse method not final.
     """
@@ -189,6 +189,3 @@ class CollectionList(object):
             while helper_node is not None:
                 new_list.insert(0,helper_node.get_data())
                 helper_node = helper_node.get_next_node()
-
-
-
