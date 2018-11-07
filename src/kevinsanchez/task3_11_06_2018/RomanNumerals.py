@@ -86,10 +86,7 @@ class RomanNumerals:
     :return the final number of the cases. 
     """
     def helper(self, f_number, s_number):
-        if f_number < s_number:
-            return s_number-f_number
-        else:
-            return f_number+s_number
+        return (s_number - f_number) if f_number < s_number else (f_number + s_number)
 
     """
     convert from roman to decimal.
@@ -100,11 +97,8 @@ class RomanNumerals:
         size = len(string)
         number = 0
         while size > 1:
-            f = self.mapp.get(string[size-2])
-            s = self.mapp.get(string[size-1])
-            number += self.helper(f, s)
+            first_number = self.mapp.get(string[size-2])
+            second_number = self.mapp.get(string[size - 1])
+            number += self.helper(first_number, second_number)
             size -= 2
-        if size is 1:
-            return number+self.mapp.get(string[0])
-        else:
-            return number
+        return number + self.mapp.get(string[0]) if size is 1 else number
