@@ -3,12 +3,13 @@ from src.kevinsanchez.kata_bank.FileRoute import FileRoute
 convert from |_ to numbers.
 """
 class Convert:
-     """
+
+    """
     traslate matrix into numbers.
     :param matrix from read.
     :return string with the number.
     """
-    def traslate(self, matrix):
+    def translate(self, matrix):
         row = 0
         final_list = []
         map_numbers = {"165": "0",
@@ -34,7 +35,8 @@ class Convert:
             final_list.append(string)
             row += 3
         return final_list
-     """
+
+    """
     compare the patter found.
     :return the value given to the pattern.
     """
@@ -46,9 +48,11 @@ class Convert:
                        "|_ ": "4",
                        "|_|": "5",
                        "| |": "6"}
-         if string in map_pattern:
+
+        if string in map_pattern:
             return map_pattern.get(string)
-     """
+
+    """
     read the file.
     :return a list with rows of the file.
     """
@@ -58,7 +62,8 @@ class Convert:
         content = file_to_read.readlines()
         file_to_read.close()
         return content
-     """
+
+    """
     this method extract rows except blank spaces.
     :return a list with final number.
     """
