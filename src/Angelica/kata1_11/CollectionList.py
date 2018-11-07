@@ -39,15 +39,10 @@ class CollectionList:
         return self.length
 
     def __iter__(self):
-        self.index = 0
-        return self
-
-    def __next__(self):
-        if self.index < self.length:
-            item = self.head
-            self.index += 1
-            return item.next
-        return self.head
+        iter_node = self.head
+        while iter_node:
+            yield iter_node
+            iter_node = iter_node.next
 
     def remove(self,node):
         if node == None: return
