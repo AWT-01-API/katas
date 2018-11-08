@@ -13,14 +13,14 @@ class Convertor:
         code7 = [[' ', '_', ' '], [' ', ' ', '|'], [' ', ' ', '|']]
         code8 = [[' ', '_', ' '], ['|', '_', '|'], ['|', '_', '|']]
         code9 = [[' ', '_', ' '], ['|', '_', '|'], [' ', '_', '|']]
-        self.codeDictionary = {0: code0, 1: code1, 2: code2, 3: code3, 4: code4, 5: code5, 6: code6, 7: code7, 8: code8, 9: code9}
+        self.code_dictionary = {0: code0, 1: code1, 2: code2, 3: code3, 4: code4, 5: code5, 6: code6, 7: code7, 8: code8, 9: code9}
 
-    def getDictKeyByValue(self, valueToFind):
+    def get_dict_key_by_value(self, value_find):
         key = None
-        listOfItems = self.codeDictionary.items()
-        for item in listOfItems:
-            toCompare = item[1]
-            if toCompare == valueToFind:
+        list_items = self.code_dictionary.items()
+        for item in list_items:
+            to_compare = item[1]
+            if to_compare == value_find:
                 key = item[0]
                 break
         return key
@@ -44,9 +44,9 @@ class Convertor:
         lastindex = 0
         for lineindex in range(0, int(len(filedata) / 3)):
             nextindex = lastindex + 3
-            toAppend = filedata[lastindex:nextindex]
-            if len(toAppend) == 3:
-                rawCodeList.append(toAppend)
+            to_append = filedata[lastindex:nextindex]
+            if len(to_append) == 3:
+                rawCodeList.append(to_append)
             lastindex = nextindex + 1
         return rawCodeList
 
@@ -70,9 +70,9 @@ class Convertor:
             temp_code = []
             raw_matrix = self.get_code_matrix_list(code)
             for matrix in raw_matrix:
-                keyValue = self.getDictKeyByValue(matrix)
-                if keyValue is not None:
-                    temp_code.append(keyValue)
+                key_value = self.get_dict_key_by_value(matrix)
+                if key_value is not None:
+                    temp_code.append(key_value)
             codelist.append(temp_code)
         return codelist
 
