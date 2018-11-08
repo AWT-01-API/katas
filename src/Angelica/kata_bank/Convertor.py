@@ -82,7 +82,6 @@ class Convertor:
         for index in range(0, len(codes)):
             raw_matrix = codes[index]
             for code in raw_matrix:
-                print(code)
                 sum_digit += (op_mult * code)
                 op_mult += 1
 
