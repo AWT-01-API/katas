@@ -40,15 +40,15 @@ class Convertor:
 
     def get_raw_code_list(self):
         filedata = self.reaf_file()
-        rawCodeList = []
+        raw_code_list = []
         lastindex = 0
         for lineindex in range(0, int(len(filedata) / 3)):
             nextindex = lastindex + 3
             to_append = filedata[lastindex:nextindex]
             if len(to_append) == 3:
-                rawCodeList.append(to_append)
+                raw_code_list.append(to_append)
             lastindex = nextindex + 1
-        return rawCodeList
+        return raw_code_list
 
     def get_code_matrix_list(self, codelineslist):
         matrix_list = [[], [], [], [], [], [], [], [], [], ]
