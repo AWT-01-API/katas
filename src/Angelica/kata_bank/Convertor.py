@@ -2,7 +2,7 @@ import re
 
 
 class Convertor:
-    def __init__(self):
+    def __init__(self, source):
         code0 = [[' ', '_', ' '], ['|', ' ', '|'], ['|', '_', '|']]
         code1 = [[' ', ' ', ' '], [' ', ' ', '|'], [' ', ' ', '|']]
         code2 = [[' ', '_', ' '], [' ', '_', '|'], ['|', '_', ' ']]
@@ -14,6 +14,7 @@ class Convertor:
         code8 = [[' ', '_', ' '], ['|', '_', '|'], ['|', '_', '|']]
         code9 = [[' ', '_', ' '], ['|', '_', '|'], [' ', '_', '|']]
         self.code_dictionary = {0: code0, 1: code1, 2: code2, 3: code3, 4: code4, 5: code5, 6: code6, 7: code7, 8: code8, 9: code9}
+        self.source = source
 
     def get_dict_key_by_value(self, value_find):
         key = None
@@ -25,8 +26,8 @@ class Convertor:
                 break
         return key
 
-    def reaf_file(self, source):
-        with open(source, "r") as f:
+    def read_file(self):
+        with open(self.source, "r") as f:
             content = f.readlines()
 
         mat = []
@@ -39,7 +40,7 @@ class Convertor:
         return mat
 
     def get_raw_code_list(self):
-        filedata = self.reaf_file()
+        filedata = self.read_file()
         raw_code_list = []
         lastindex = 0
         for lineindex in range(0, int(len(filedata) / 3)):
