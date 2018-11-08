@@ -1,4 +1,3 @@
-import DictionaryNumber
 import re
 
 
@@ -26,8 +25,8 @@ class Convertor:
                 break
         return key
 
-    def reaf_file(self):
-        with open(".\source_data.txt", "r") as f:
+    def reaf_file(self, source):
+        with open(source, "r") as f:
             content = f.readlines()
 
         mat = []
@@ -43,7 +42,7 @@ class Convertor:
         filedata = self.reaf_file()
         rawCodeList = []
         lastindex = 0
-        for lineindex in range(0, len(filedata) / 3):
+        for lineindex in range(0, int(len(filedata) / 3)):
             nextindex = lastindex + 3
             toAppend = filedata[lastindex:nextindex]
             if len(toAppend) == 3:
@@ -76,3 +75,16 @@ class Convertor:
                     temp_code.append(keyValue)
             codelist.append(temp_code)
         return codelist
+
+    def validate_all_codes(self,codes):
+        sum_digit = 0
+        op_mult = 1
+        for index in range(0, len(codes)):
+            raw_matrix = codes[index]
+            for code in raw_matrix:
+                print(code)
+                sum_digit += (op_mult * code)
+                op_mult += 1
+
+        is_valid = sum_digit % 11 == 0
+        return is_valid
