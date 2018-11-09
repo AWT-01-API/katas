@@ -1,25 +1,36 @@
-import re
+class Converter:
+    VALUE0 = 0
+    VALUE1 = 1
+    VALUE2 = 2
+    VALUE3 = 3
+    VALUE4 = 4
+    VALUE5 = 5
+    VALUE6 = 6
+    VALUE7 = 7
+    VALUE8 = 8
+    VALUE9 = 9
 
+    CODE0 = [[' ', '_', ' '], ['|', ' ', '|'], ['|', '_', '|']]
+    CODE1 = [[' ', ' ', ' '], [' ', ' ', '|'], [' ', ' ', '|']]
+    CODE2 = [[' ', '_', ' '], [' ', '_', '|'], ['|', '_', ' ']]
+    CODE3 = [[' ', '_', ' '], [' ', '_', '|'], [' ', '_', '|']]
+    CODE4 = [[' ', ' ', ' '], ['|', '_', '|'], [' ', ' ', '|']]
+    CODE5 = [[' ', '_', ' '], ['|', '_', ' '], [' ', '_', '|']]
+    CODE6 = [[' ', '_', ' '], ['|', '_', ' '], ['|', '_', '|']]
+    CODE7 = [[' ', '_', ' '], [' ', ' ', '|'], [' ', ' ', '|']]
+    CODE8 = [[' ', '_', ' '], ['|', '_', '|'], ['|', '_', '|']]
+    CODE9 = [[' ', '_', ' '], ['|', '_', '|'], [' ', '_', '|']]
 
-class Convertor:
     def __init__(self, source):
-        code0 = [[' ', '_', ' '], ['|', ' ', '|'], ['|', '_', '|']]
-        code1 = [[' ', ' ', ' '], [' ', ' ', '|'], [' ', ' ', '|']]
-        code2 = [[' ', '_', ' '], [' ', '_', '|'], ['|', '_', ' ']]
-        code3 = [[' ', '_', ' '], [' ', '_', '|'], [' ', '_', '|']]
-        code4 = [[' ', ' ', ' '], ['|', '_', '|'], [' ', ' ', '|']]
-        code5 = [[' ', '_', ' '], ['|', '_', ' '], [' ', '_', '|']]
-        code6 = [[' ', '_', ' '], ['|', '_', ' '], ['|', '_', '|']]
-        code7 = [[' ', '_', ' '], [' ', ' ', '|'], [' ', ' ', '|']]
-        code8 = [[' ', '_', ' '], ['|', '_', '|'], ['|', '_', '|']]
-        code9 = [[' ', '_', ' '], ['|', '_', '|'], [' ', '_', '|']]
-        self.code_dictionary = {0: code0, 1: code1, 2: code2, 3: code3, 4: code4, 5: code5, 6: code6, 7: code7, 8: code8, 9: code9}
-        self.source = source
+        self.code_dictionary = {self.VALUE0: self.CODE0, self.VALUE1: self.CODE1, self.VALUE2: self.CODE2,
+                                self.VALUE3: self.CODE3, self.VALUE4: self.CODE4, self.VALUE5: self.CODE5,
+                                self.VALUE6: self.CODE6, self.VALUE7: self.CODE7, self.VALUE8: self.CODE8,
+                                self.VALUE9: self.CODE9}
+        self.file_path = source
 
     def get_dict_key_by_value(self, value_find):
         key = None
-        list_items = self.code_dictionary.items()
-        for item in list_items:
+        for item in self.code_dictionary.items():
             to_compare = item[1]
             if to_compare == value_find:
                 key = item[0]
@@ -27,7 +38,7 @@ class Convertor:
         return key
 
     def read_file(self):
-        with open(self.source, "r") as f:
+        with open(self.file_path, "r") as f:
             content = f.readlines()
 
         mat = []
@@ -59,7 +70,7 @@ class Convertor:
             for line in codelineslist:
                 line_to_split = list(line)
                 matrix_l = line_to_split[lastindex:nextindex]
-                if len(matrix_l) < 3 :
+                if len(matrix_l) < 3:
                     matrix_l = [' ', ' ', ' ']
                 matrix_list[index].append(matrix_l)
             lastindex = nextindex
@@ -77,7 +88,7 @@ class Convertor:
             codelist.append(temp_code)
         return codelist
 
-    def validate_all_codes(self,codes):
+    def validate_all_codes(self, codes):
         sum_digit = 0
         op_mult = 1
         for index in range(0, len(codes)):
@@ -85,6 +96,4 @@ class Convertor:
             for code in raw_matrix:
                 sum_digit += (op_mult * code)
                 op_mult += 1
-
-        is_valid = sum_digit % 11 == 0
-        return is_valid
+        return sum_digit % 11 == 0
