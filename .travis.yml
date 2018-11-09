@@ -1,0 +1,27 @@
+language: python
+python:
+  - "2.7"
+
+
+# command to install dependencies
+install:
+
+# command to run tests
+script:
+  - sonar-scanner
+  - python -m unittest discover -s test/ -p "*.py"
+
+addons:
+  sonarcloud:
+    organization: "awt-01-api"
+    token:
+      secure: $SONAR_TOKEN
+
+
+
+notifications:
+ email: true
+   - Bruno.Barrios@jalasoft.com
+
+branches:
+  only: develop
