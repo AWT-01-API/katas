@@ -72,7 +72,7 @@ class Requests:
         data = {
             "Content": content
         }
-        r = requests.post(url, json.dumps(content), auth=(self.username, self.password))
+        r = requests.post(url, json.dumps(data), auth=(self.username, self.password))
         return r
 
     def edit_task(self, task_id, content):
@@ -80,7 +80,7 @@ class Requests:
         data = {
             "Content": content
         }
-        r = requests.put(url, json.dumps(content), auth=(self.username, self.password))
+        r = requests.put(url, json.dumps(data), auth=(self.username, self.password))
         return r
 
     def delete_task(self, task_id):
