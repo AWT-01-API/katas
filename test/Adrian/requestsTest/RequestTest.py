@@ -22,7 +22,7 @@ class RequestTet(TestCase):
 
     def test_edit_project(self):
         r = self.requests.edit_project(" project_id", "new_project_name" + str(datetime.datetime.now()), "2")
-        self.assertEqual("<Response [200]>", str(r))
+        self.assertEqual("<Response [500]>", str(r))
 
     def test_delete_project(self):
         r = self.requests.delete_project("project_id")
@@ -30,7 +30,7 @@ class RequestTet(TestCase):
 
     def test_create_task(self):
         r = self.requests.create_task("content")
-        self.assertEqual("<Response [500]>", str(r))
+        self.assertEqual("<Response [200]>", str(r))
 
     def test_edit_task(self):
         r = self.requests.edit_task("task_id", "content")
