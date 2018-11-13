@@ -1,5 +1,6 @@
 import requests
 import json
+from src.kevinsanchez.python_request.PropertyReader import PropertyReader
 
 """
 class to manage requests.
@@ -10,10 +11,10 @@ class RequestManager:
     constructor for header.
     """
     def __init__(self):
-        self.base_url = 'https://todo.ly/api'
-        self.header = {'X-TrackerToken': '8cabd12b477044edabc96378787fc9cd',
+        self.base_url = PropertyReader.get_property('url')
+        self.header = {'X-TrackerToken': PropertyReader.get_property('apiToken'),
                        'Content-Type': 'application/json',
-                       'Authorization': 'Basic a2V2aW4uc2FuY2hlenBlZXBAZ21haWwuY29tOjcyNDk1NDMxVEFOSUF0ayE='}
+                       'Authorization': PropertyReader.get_property('apiAuthorization')}
 
     """
     creates url for requests.
