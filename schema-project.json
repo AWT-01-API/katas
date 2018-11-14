@@ -1,0 +1,378 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "Id",
+    "Content",
+    "ItemsCount",
+    "Icon",
+    "ItemType",
+    "ParentId",
+    "Collapsed",
+    "ItemOrder",
+    "Children",
+    "IsProjectShared",
+    "ProjectShareOwnerName",
+    "ProjectShareOwnerEmail",
+    "IsShareApproved",
+    "IsOwnProject",
+    "LastSyncedDateTime",
+    "LastUpdatedDate",
+    "Deleted",
+    "SyncClientCreationId"
+  ],
+  "properties": {
+    "Id": {
+      "$id": "#/properties/Id",
+      "type": "integer",
+      "title": "The Id Schema",
+      "default": 0,
+      "examples": [
+        3752200
+      ]
+    },
+    "Content": {
+      "$id": "#/properties/Content",
+      "type": "string",
+      "title": "The Content Schema",
+      "default": "",
+      "examples": [
+        "Work"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "ItemsCount": {
+      "$id": "#/properties/ItemsCount",
+      "type": "integer",
+      "title": "The Itemscount Schema",
+      "default": 0,
+      "examples": [
+        5
+      ]
+    },
+    "Icon": {
+      "$id": "#/properties/Icon",
+      "type": "integer",
+      "title": "The Icon Schema",
+      "default": 0,
+      "examples": [
+        10
+      ]
+    },
+    "ItemType": {
+      "$id": "#/properties/ItemType",
+      "type": "integer",
+      "title": "The Itemtype Schema",
+      "default": 0,
+      "examples": [
+        2
+      ]
+    },
+    "ParentId": {
+      "$id": "#/properties/ParentId",
+      "type": "null",
+      "title": "The Parentid Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "Collapsed": {
+      "$id": "#/properties/Collapsed",
+      "type": "boolean",
+      "title": "The Collapsed Schema",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "ItemOrder": {
+      "$id": "#/properties/ItemOrder",
+      "type": "integer",
+      "title": "The Itemorder Schema",
+      "default": 0,
+      "examples": [
+        1
+      ]
+    },
+    "Children": {
+      "$id": "#/properties/Children",
+      "type": "array",
+      "title": "The Children Schema",
+      "items": {
+        "$id": "#/properties/Children/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "required": [
+          "Id",
+          "Content",
+          "ItemsCount",
+          "Icon",
+          "ItemType",
+          "ParentId",
+          "Collapsed",
+          "ItemOrder",
+          "Children",
+          "IsProjectShared",
+          "ProjectShareOwnerName",
+          "ProjectShareOwnerEmail",
+          "IsShareApproved",
+          "IsOwnProject",
+          "LastSyncedDateTime",
+          "LastUpdatedDate",
+          "Deleted",
+          "SyncClientCreationId"
+        ],
+        "properties": {
+          "Id": {
+            "$id": "#/properties/Children/items/properties/Id",
+            "type": "integer",
+            "title": "The Id Schema",
+            "default": 0,
+            "examples": [
+              3752201
+            ]
+          },
+          "Content": {
+            "$id": "#/properties/Children/items/properties/Content",
+            "type": "string",
+            "title": "The Content Schema",
+            "default": "",
+            "examples": [
+              "Sub Project"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "ItemsCount": {
+            "$id": "#/properties/Children/items/properties/ItemsCount",
+            "type": "integer",
+            "title": "The Itemscount Schema",
+            "default": 0,
+            "examples": [
+              0
+            ]
+          },
+          "Icon": {
+            "$id": "#/properties/Children/items/properties/Icon",
+            "type": "integer",
+            "title": "The Icon Schema",
+            "default": 0,
+            "examples": [
+              10
+            ]
+          },
+          "ItemType": {
+            "$id": "#/properties/Children/items/properties/ItemType",
+            "type": "integer",
+            "title": "The Itemtype Schema",
+            "default": 0,
+            "examples": [
+              2
+            ]
+          },
+          "ParentId": {
+            "$id": "#/properties/Children/items/properties/ParentId",
+            "type": "integer",
+            "title": "The Parentid Schema",
+            "default": 0,
+            "examples": [
+              3752200
+            ]
+          },
+          "Collapsed": {
+            "$id": "#/properties/Children/items/properties/Collapsed",
+            "type": "boolean",
+            "title": "The Collapsed Schema",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
+          "ItemOrder": {
+            "$id": "#/properties/Children/items/properties/ItemOrder",
+            "type": "integer",
+            "title": "The Itemorder Schema",
+            "default": 0,
+            "examples": [
+              1
+            ]
+          },
+          "Children": {
+            "$id": "#/properties/Children/items/properties/Children",
+            "type": "array",
+            "title": "The Children Schema"
+          },
+          "IsProjectShared": {
+            "$id": "#/properties/Children/items/properties/IsProjectShared",
+            "type": "boolean",
+            "title": "The Isprojectshared Schema",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
+          "ProjectShareOwnerName": {
+            "$id": "#/properties/Children/items/properties/ProjectShareOwnerName",
+            "type": "null",
+            "title": "The Projectshareownername Schema",
+            "default": null,
+            "examples": [
+              null
+            ]
+          },
+          "ProjectShareOwnerEmail": {
+            "$id": "#/properties/Children/items/properties/ProjectShareOwnerEmail",
+            "type": "null",
+            "title": "The Projectshareowneremail Schema",
+            "default": null,
+            "examples": [
+              null
+            ]
+          },
+          "IsShareApproved": {
+            "$id": "#/properties/Children/items/properties/IsShareApproved",
+            "type": "boolean",
+            "title": "The Isshareapproved Schema",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
+          "IsOwnProject": {
+            "$id": "#/properties/Children/items/properties/IsOwnProject",
+            "type": "boolean",
+            "title": "The Isownproject Schema",
+            "default": false,
+            "examples": [
+              true
+            ]
+          },
+          "LastSyncedDateTime": {
+            "$id": "#/properties/Children/items/properties/LastSyncedDateTime",
+            "type": "string",
+            "title": "The Lastsynceddatetime Schema",
+            "default": "",
+            "examples": [
+              "/Date(1542165214960)/"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "LastUpdatedDate": {
+            "$id": "#/properties/Children/items/properties/LastUpdatedDate",
+            "type": "string",
+            "title": "The Lastupdateddate Schema",
+            "default": "",
+            "examples": [
+              "/Date(1541681611683)/"
+            ],
+            "pattern": "^(.*)$"
+          },
+          "Deleted": {
+            "$id": "#/properties/Children/items/properties/Deleted",
+            "type": "boolean",
+            "title": "The Deleted Schema",
+            "default": false,
+            "examples": [
+              false
+            ]
+          },
+          "SyncClientCreationId": {
+            "$id": "#/properties/Children/items/properties/SyncClientCreationId",
+            "type": "null",
+            "title": "The Syncclientcreationid Schema",
+            "default": null,
+            "examples": [
+              null
+            ]
+          }
+        }
+      }
+    },
+    "IsProjectShared": {
+      "$id": "#/properties/IsProjectShared",
+      "type": "boolean",
+      "title": "The Isprojectshared Schema",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "ProjectShareOwnerName": {
+      "$id": "#/properties/ProjectShareOwnerName",
+      "type": "null",
+      "title": "The Projectshareownername Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "ProjectShareOwnerEmail": {
+      "$id": "#/properties/ProjectShareOwnerEmail",
+      "type": "null",
+      "title": "The Projectshareowneremail Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "IsShareApproved": {
+      "$id": "#/properties/IsShareApproved",
+      "type": "boolean",
+      "title": "The Isshareapproved Schema",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "IsOwnProject": {
+      "$id": "#/properties/IsOwnProject",
+      "type": "boolean",
+      "title": "The Isownproject Schema",
+      "default": false,
+      "examples": [
+        true
+      ]
+    },
+    "LastSyncedDateTime": {
+      "$id": "#/properties/LastSyncedDateTime",
+      "type": "string",
+      "title": "The Lastsynceddatetime Schema",
+      "default": "",
+      "examples": [
+        "/Date(1542165214976)/"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "LastUpdatedDate": {
+      "$id": "#/properties/LastUpdatedDate",
+      "type": "string",
+      "title": "The Lastupdateddate Schema",
+      "default": "",
+      "examples": [
+        "/Date(1541958425757)/"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "Deleted": {
+      "$id": "#/properties/Deleted",
+      "type": "boolean",
+      "title": "The Deleted Schema",
+      "default": false,
+      "examples": [
+        false
+      ]
+    },
+    "SyncClientCreationId": {
+      "$id": "#/properties/SyncClientCreationId",
+      "type": "null",
+      "title": "The Syncclientcreationid Schema",
+      "default": null,
+      "examples": [
+        null
+      ]
+    }
+  }
+}
