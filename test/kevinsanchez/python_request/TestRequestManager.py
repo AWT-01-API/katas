@@ -1,6 +1,7 @@
 import unittest
 import jsonschema
 import simplejson as json
+import os
 from src.kevinsanchez.python_request.RequestManager import RequestManager
 
 """
@@ -15,11 +16,12 @@ class TestRequestManager(unittest.TestCase):
 
     def setUp(self):
         self.request_manager = RequestManager()
-        file = open('schema-project.json')
+        import os
+        file = open((os.path.dirname(__file__))+'/schema-project.json')
         schema_data = file.read()
         file.close()
         self.schema_project = json.loads(schema_data)
-        file = open('schema-item.json')
+        file = open((os.path.dirname(__file__))+'/schema-item.json')
         schema_data = file.read()
         file.close()
         self.schema_item = json.loads(schema_data)
