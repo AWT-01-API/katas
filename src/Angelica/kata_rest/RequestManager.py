@@ -6,19 +6,19 @@ import requests
 class RequestManager:
 
     def __init__(self):
-        self.property = "config.properties"
         self.config = configparser.ConfigParser()
-        self.config.sections()
-        self.user = self.config[self.property]['API_USER']
-        self.password = self.config[self.property]['API_KEY']
+        self.config.read("/Users/angi/Desktop/kataspy/katas/src/Angelica/kata_rest/cfg/config.ini")
+        self.user = self.config.get('configuration', 'API_USER')
+        self.password = self.config.get('configuration', 'API_KEY')
         pass
 
     def get_endpoint(self, link):
         # api-endpoint
-        return self.config[self.property]['URL_BASE'] + link + '.json'
+        self.url = self.config.get('configuration', 'URL_BASE')
+        return self.url + link + '.json'
 
     def post(self, link, body):
-        request = requests.post(self.get_endpoint(link), body, auth=(self.user, self.password))
+        request = requests.post(link, body, auth=(self.user, self.password))
         return request.status_code
 
     def get(self, link):
