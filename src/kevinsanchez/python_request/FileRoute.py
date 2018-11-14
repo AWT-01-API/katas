@@ -8,7 +8,6 @@ class FileRoute:
     """
     method which find the route
     """
-    @staticmethod
-    def find(route):
-        string = (os.path.dirname(__file__)+'\\'+route)
-        return string
+    def find(self):
+        string = os.getcwd() + '\\config.properties'
+        return string.replace("\\", "/")
