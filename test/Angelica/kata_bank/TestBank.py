@@ -31,3 +31,14 @@ class ConvertTest(unittest.TestCase):
                    ['|', '_', '|']]
         expected_matrix = [matrix0, matrix0, matrix0, matrix0, matrix0, matrix0, matrix0, matrix0, matrix0]
         self.assertEqual(expected_matrix, self.convert.get_code_matrix_list(text_to_convert))
+
+    def test_save_code_file(self):
+        self.convert = Converter("source_data_e.txt")
+        file_name = "test_save_codes"
+        self.convert.save_converted_codes(file_name)
+        with open(file_name+".txt", "r") as f:
+            content = f.readlines()
+        if len(content) >= 3:
+            self.assertEqual("000000051", content[0][:len(content[0])-1])
+            self.assertEqual("49006771? ILL", content[1][:len(content[1])-1])
+            self.assertEqual("1234?678? ILL", content[2][:len(content[2])-1])

@@ -68,6 +68,8 @@ class Converter:
         for index in range(0, len(matrix_list)):
             nextindex = lastindex + 3
             for line in codelineslist:
+                if len(line) < 28:
+                    line += " " * (29-len(line))
                 line_to_split = list(line)
                 matrix_l = line_to_split[lastindex:nextindex]
                 if len(matrix_l) < 3:
@@ -85,6 +87,8 @@ class Converter:
                 key_value = self.get_dict_key_by_value(matrix)
                 if key_value is not None:
                     temp_code.append(key_value)
+                else:
+                    temp_code.append("?")
             codelist.append(temp_code)
         return codelist
 
@@ -97,3 +101,13 @@ class Converter:
                 sum_digit += (op_mult * code)
                 op_mult += 1
         return sum_digit % 11 == 0
+
+    def save_converted_codes(self, name):
+        code_file = open(name + ".txt", "w+")
+        code_list = self.get_all_codes()
+        for line in range(0, len(code_list)):
+            if "?" in code_list[line]:
+                code_file.write(''.join(str(e) for e in code_list[line]) + " ILL\n")
+            else:
+                code_file.write(''.join(str(e) for e in code_list[line]) + "\n")
+        code_file.close()
