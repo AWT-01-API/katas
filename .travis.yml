@@ -6,6 +6,7 @@ python:
 # command to install dependencies
 install:
 - pip install requests
+- pip install jsonschema
 # command to run tests
 script:
   - sonar-scanner
