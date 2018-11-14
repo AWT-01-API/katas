@@ -6,11 +6,13 @@ from src.kevinsanchez.python_request.RequestManager import RequestManager
 """
 class for test.
 """
-class TestRequestManager(unittest.TestCase):
 
+
+class TestRequestManager(unittest.TestCase):
     """
     set up for test.
     """
+
     def setUp(self):
         self.request_manager = RequestManager()
         file = open('schema-project.json')
@@ -25,6 +27,7 @@ class TestRequestManager(unittest.TestCase):
     """
     test post request for project and item.
     """
+
     def test_post(self):
         # post for project
         body = {'Content': 'Test Project'}
@@ -43,6 +46,7 @@ class TestRequestManager(unittest.TestCase):
     """
     test get request for project and item.
     """
+
     def test_get(self):
         # get for project
         # create project to get it with the id
@@ -56,7 +60,7 @@ class TestRequestManager(unittest.TestCase):
         # get for item
         # create a item to get it with the id
         body_item = {'Content': 'Test Item',
-                     'ProjectId': response.json()['Id']}
+                     'ProjectId': '3752200'}
         item_id = self.request_manager.post('/items', body_item).json()['Id']
         response_item = self.request_manager.get('/items/' + str(item_id))
         json_obj_item = response_item.json()
@@ -66,6 +70,7 @@ class TestRequestManager(unittest.TestCase):
     """
     test delete request for project and item.
     """
+
     def test_delete(self):
         # create project to delete
         body = {'Content': 'Test Project to delete'}
@@ -87,4 +92,3 @@ class TestRequestManager(unittest.TestCase):
         json_obj_project = response.json()
         jsonschema.validate(json_obj_project, self.schema_project)
         self.assertEqual(200, response.status_code)
-

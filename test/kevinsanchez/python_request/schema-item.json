@@ -72,7 +72,7 @@
     },
     "ProjectId": {
       "$id": "#/properties/ProjectId",
-      "type": "null",
+      "type": "integer",
       "title": "The Projectid Schema",
       "default": null,
       "examples": [
@@ -146,7 +146,7 @@
     },
     "ItemOrder": {
       "$id": "#/properties/ItemOrder",
-      "type": "null",
+      "type": "integer",
       "title": "The Itemorder Schema",
       "default": null,
       "examples": [
