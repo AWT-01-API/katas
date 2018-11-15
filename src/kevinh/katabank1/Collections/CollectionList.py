@@ -24,7 +24,6 @@ class CollectionList:
         self.head = None
         self.first = None
         self.current = self.first
-        pass
 
     def __iter__(self):
         self.current = self.first
@@ -59,7 +58,7 @@ class CollectionList:
 
     def __getitem__(self, key):
         if key < 0 or self.is_empty():
-            pass
+            return None
         else:
             index = 0
             for item in self:
@@ -69,7 +68,7 @@ class CollectionList:
 
     def __setitem__(self, key, value):
         if key < 0 or self.is_empty():
-            pass
+            return None
         else:
             index = 0
             actual = self.first
@@ -118,7 +117,7 @@ class CollectionList:
                 last.setnext(actual.getnext())
                 if index == 0:
                     self.first = last
-                return
+                break
             else:
                 last = actual
                 actual = actual.getnext()
