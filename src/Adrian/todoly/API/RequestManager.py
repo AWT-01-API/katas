@@ -44,7 +44,6 @@ class RequestManager(object):
             session.headers.update({"X-TrackerToken": self.token})
         else:
             # log message "set token before make post_request"
-            print self.main_url + endpoint, body
             return None
         response = self.requests_retry_session(session=session).post(self.main_url + endpoint, body)
         return response
