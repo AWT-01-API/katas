@@ -10,7 +10,7 @@ class RequestTet(TestCase):
 
     def test_create_user(self):
         r = self.requests.create_user("pepe1234@gmail.com", "Pepe Grillo", "password")
-        self.assertEqual("<Response [200]>", str(r))
+        self.assertEqual("<Response [404]>", str(r))
 
     def test_get_projects(self):
         r = self.requests.get_projects()

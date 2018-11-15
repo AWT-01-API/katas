@@ -12,19 +12,18 @@ class TodoLyRequest:
         self.password = ReadCfg.get_value("password")
         self.token = ReadCfg.get_value("token")
         self.request = RequestManager(self.url, self.username, self.password)
+        self.request.set_token(self.token)
 
     @staticmethod
     def set_url(endpoint):
         return ReadCfg.get_value("url") + endpoint + ".json"
 
     def create_user(self, email, full_name, password):
-        url = self.set_url("user")
         data = {
             "Email": email,
             "FullName": full_name,
             "Password": password
         }
-        r = requests.post(url, json.dumps(data))
         return self.request.post_request("user", data)
 
     def get_projects(self):
