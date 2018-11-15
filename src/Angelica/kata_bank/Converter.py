@@ -1,44 +1,32 @@
+class Codes:
+    VALUES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    CODES = [[[' ', '_', ' '], ['|', ' ', '|'], ['|', '_', '|']],
+             [[' ', ' ', ' '], [' ', ' ', '|'], [' ', ' ', '|']],
+             [[' ', '_', ' '], [' ', '_', '|'], ['|', '_', ' ']],
+             [[' ', '_', ' '], [' ', '_', '|'], [' ', '_', '|']],
+             [[' ', ' ', ' '], ['|', '_', '|'], [' ', ' ', '|']],
+             [[' ', '_', ' '], ['|', '_', ' '], [' ', '_', '|']],
+             [[' ', '_', ' '], ['|', '_', ' '], ['|', '_', '|']],
+             [[' ', '_', ' '], [' ', ' ', '|'], [' ', ' ', '|']],
+             [[' ', '_', ' '], ['|', '_', '|'], ['|', '_', '|']],
+             [[' ', '_', ' '], ['|', '_', '|'], [' ', '_', '|']]]
+
+
 class Converter:
-    VALUE0 = 0
-    VALUE1 = 1
-    VALUE2 = 2
-    VALUE3 = 3
-    VALUE4 = 4
-    VALUE5 = 5
-    VALUE6 = 6
-    VALUE7 = 7
-    VALUE8 = 8
-    VALUE9 = 9
-
-    CODE0 = [[' ', '_', ' '], ['|', ' ', '|'], ['|', '_', '|']]
-    CODE1 = [[' ', ' ', ' '], [' ', ' ', '|'], [' ', ' ', '|']]
-    CODE2 = [[' ', '_', ' '], [' ', '_', '|'], ['|', '_', ' ']]
-    CODE3 = [[' ', '_', ' '], [' ', '_', '|'], [' ', '_', '|']]
-    CODE4 = [[' ', ' ', ' '], ['|', '_', '|'], [' ', ' ', '|']]
-    CODE5 = [[' ', '_', ' '], ['|', '_', ' '], [' ', '_', '|']]
-    CODE6 = [[' ', '_', ' '], ['|', '_', ' '], ['|', '_', '|']]
-    CODE7 = [[' ', '_', ' '], [' ', ' ', '|'], [' ', ' ', '|']]
-    CODE8 = [[' ', '_', ' '], ['|', '_', '|'], ['|', '_', '|']]
-    CODE9 = [[' ', '_', ' '], ['|', '_', '|'], [' ', '_', '|']]
-
     def __init__(self, source):
-        self.code_dictionary = {self.VALUE0: self.CODE0, self.VALUE1: self.CODE1, self.VALUE2: self.CODE2,
-                                self.VALUE3: self.CODE3, self.VALUE4: self.CODE4, self.VALUE5: self.CODE5,
-                                self.VALUE6: self.CODE6, self.VALUE7: self.CODE7, self.VALUE8: self.CODE8,
-                                self.VALUE9: self.CODE9}
         self.file_path = source
 
     def get_dict_key_by_value(self, value_find):
         key = None
-        for item in self.code_dictionary.items():
-            to_compare = item[1]
+        for index in range(0, len(Codes.CODES)):
+            to_compare = Codes.CODES[index]
             if to_compare == value_find:
-                key = item[0]
+                key = Codes.VALUES[index]
                 break
         return key
 
     def read_file(self):
-        with open(self.file_path, "r") as f:
+        with open(self.file_path, "rb") as f:
             content = f.readlines()
 
         mat = []
@@ -68,12 +56,11 @@ class Converter:
         for index in range(0, len(matrix_list)):
             nextindex = lastindex + 3
             for line in codelineslist:
-                if len(line) < 28:
-                    line += " " * (29-len(line))
                 line_to_split = list(line)
                 matrix_l = line_to_split[lastindex:nextindex]
                 if len(matrix_l) < 3:
                     matrix_l = [' ', ' ', ' ']
+                matrix_l = [s.replace('\r', ' ') for s in matrix_l]
                 matrix_list[index].append(matrix_l)
             lastindex = nextindex
         return matrix_list
