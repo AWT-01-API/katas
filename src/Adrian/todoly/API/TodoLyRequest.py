@@ -24,7 +24,6 @@ class TodoLyRequest:
             "FullName": full_name,
             "Password": password
         }
-        #r = requests.post(url, json.dumps(data))
         return self.request.post_request("user", data)
 
     def get_projects(self):
