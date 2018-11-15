@@ -41,8 +41,5 @@ class RequestTet(TestCase):
         self.assertEqual("<Response [500]>", str(r))
 
     def test_create_project_create_task_inside_assert_delete_both(self):
-        # TODO test
-        # Create new project add task, check if task exists, check if its undone,
-        # set as finished, delete project"
         r = self.requests.create_project("New Project" + str(datetime.datetime.now()), "3")
         self.assertEqual("<Response [200]>", str(r))
