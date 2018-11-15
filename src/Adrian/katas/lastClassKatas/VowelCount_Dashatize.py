@@ -1,9 +1,9 @@
 class VowelCount:
 
     @staticmethod
-    def get_count(inputStr):
+    def get_count(input_str):
         vowels = b'aeiou'
-        return len(inputStr) - len(inputStr.translate(None, vowels))
+        return len(input_str) - len(input_str.translate(None, vowels))
 
 
 class Dashatize:
