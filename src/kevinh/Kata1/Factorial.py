@@ -1,8 +1,6 @@
 class Factorial:
-    def __init__(self):
-        pass
-
-    def process(self, number):
+    @staticmethod
+    def process(number):
         factorial = number
         while number > 1:
             number = number - 1
