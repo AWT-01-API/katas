@@ -18,7 +18,6 @@ class TodoLyRequest:
         return ReadCfg.get_value("url") + endpoint + ".json"
 
     def create_user(self, email, full_name, password):
-        url = self.set_url("user")
         data = {
             "Email": email,
             "FullName": full_name,
