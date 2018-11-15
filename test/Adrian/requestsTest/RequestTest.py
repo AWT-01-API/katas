@@ -1,12 +1,12 @@
 from unittest import TestCase
-from src.Adrian.requests.Requests import Requests
+from src.Adrian.todoly.API.TodoLyRequest import TodoLyRequest
 import datetime
 
 
 class RequestTet(TestCase):
 
     def setUp(self):
-        self.requests = Requests()
+        self.requests = TodoLyRequest()
 
     def test_create_user(self):
         r = self.requests.create_user("pepe1234@gmail.com", "Pepe Grillo", "password")

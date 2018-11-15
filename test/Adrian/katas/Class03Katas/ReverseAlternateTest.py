@@ -1,4 +1,4 @@
-from src.Adrian.class03Katas.Class03 import Class03ReverseAlternate
+from src.Adrian.katas.class03Katas import Class03ReverseAlternate
 
 from unittest import TestCase
 
