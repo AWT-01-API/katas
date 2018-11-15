@@ -1,5 +1,5 @@
 from unittest import TestCase
-from src.Adrian.katas.kataList import KataList
+from src.Adrian.katas.kataList.KataList import KataList
 
 
 class TestKataList(TestCase):
