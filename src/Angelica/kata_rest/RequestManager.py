@@ -1,20 +1,20 @@
 # importing the requests library
-import configparser
 import requests
-
+from src.Angelica.kata_rest.cfg.reader_cfg import Reader
 
 class RequestManager:
 
     def __init__(self):
-        self.config = configparser.ConfigParser()
-        self.config.read("/Users/angi/Desktop/kataspy/katas/src/Angelica/kata_rest/cfg/config.ini")
-        self.user = self.config.get('configuration', 'API_USER')
-        self.password = self.config.get('configuration', 'API_KEY')
-        pass
+        read = Reader()
+        self.user = read.get_val('API_USER')
+        print (self.user)
+        self.password = read.get_val('API_KEY')
+        print (self.user)
 
     def get_endpoint(self, link):
+        read = Reader()
         # api-endpoint
-        self.url = self.config.get('configuration', 'URL_BASE')
+        self.url = read.get_val('URL_BASE')
         return self.url + link + '.json'
 
     def post(self, link, body):
