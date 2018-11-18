@@ -12,7 +12,7 @@ class RequestManager:
     """
     def __init__(self):
         self.base_url = PropertyReader.get_property('url')
-        self.header = {'X-TrackerToken': PropertyReader.get_property('apiToken'),
+        self.header = {
                        'Content-Type': 'application/json',
                        'Authorization': PropertyReader.get_property('apiAuthorization')}
 

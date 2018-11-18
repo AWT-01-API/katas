@@ -2,6 +2,7 @@ import unittest
 import jsonschema
 import simplejson as json
 from src.kevinsanchez.python_request.RequestManager import RequestManager
+from src.kevinsanchez.python_request.FileRoute import FileRoute
 
 """
 class for test.
@@ -13,13 +14,9 @@ class TestRequestManager(unittest.TestCase):
     """
     def setUp(self):
         self.request_manager = RequestManager()
-        file = open('schema-project.json')
-        schema_data = file.read()
-        file.close()
+        schema_data = FileRoute.get_file_validator('schema-project.json')
         self.schema_project = json.loads(schema_data)
-        file = open('schema-item.json')
-        schema_data = file.read()
-        file.close()
+        schema_data = FileRoute.get_file_validator('schema-item.json')
         self.schema_item = json.loads(schema_data)
 
     """
