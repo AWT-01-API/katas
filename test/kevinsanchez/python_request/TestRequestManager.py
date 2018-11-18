@@ -57,7 +57,7 @@ class TestRequestManager(unittest.TestCase):
         # get for item
         # create a item to get it with the id
         body_item = {'Content': 'Test Item',
-                     'ProjectId': '3752200'}
+                     'ProjectId': response.json()['Id']}
         item_id = self.request_manager.post('/items', body_item).json()['Id']
         response_item = self.request_manager.get('/items/' + str(item_id))
         json_obj_item = response_item.json()

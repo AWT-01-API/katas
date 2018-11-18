@@ -14,7 +14,6 @@ class PropertyReader:
     @staticmethod
     def get_property(option):
         config = ConfigParser.RawConfigParser()
-        find_route = FileRoute()
-        config.read(find_route.find_properties())
+        config.read(FileRoute.find_properties())
         return config.get('Environment', option)
 
