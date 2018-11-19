@@ -1,11 +1,11 @@
-from src.Adrian.class03Katas.Class03 import Class03ReverseAlternate
+from src.Adrian.katas.class03Katas.Class03 import Class03ReverseAlternate
 
 from unittest import TestCase
 
 
 class Class03(TestCase):
 
-    def test_reverse_alternate(self):
+    def ReverseAlternateTest(self):
         (Class03ReverseAlternate.reverse_alternate("Did it work?"), "Did ti work?")
         self.assertEqual(Class03ReverseAlternate.reverse_alternate("I really hope it works this time..."),
                          "I yllaer hope ti works siht time...")

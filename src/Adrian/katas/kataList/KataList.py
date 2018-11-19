@@ -1,4 +1,4 @@
-from src.Adrian.kataList.Node import Node
+from src.Adrian.katas.kataList.Node import Node
 
 """
 Kata list.
