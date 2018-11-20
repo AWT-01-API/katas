@@ -9,7 +9,8 @@ class Convert:
     :param matrix from read.
     :return string with the number.
     """
-    def translate(self, matrix):
+    @staticmethod
+    def translate(matrix):
         row = 0
         final_list = []
         map_numbers = {"165": "0",
@@ -38,9 +39,11 @@ class Convert:
 
     """
     compare the patter found.
+    :param string to compare.
     :return the value given to the pattern.
     """
-    def compare(self, string):
+    @staticmethod
+    def compare(string):
         map_pattern = {"   ": "0",
                        " _ ": "1",
                        "  |": "2",
@@ -56,12 +59,22 @@ class Convert:
     read the file.
     :return a list with rows of the file.
     """
-    def read(self):
+    @staticmethod
+    def read():
         find_route = FileRoute()
         file_to_read = open(find_route.find(), 'r')
         content = file_to_read.readlines()
         file_to_read.close()
         return content
+
+    """
+    check if an account is readable.
+    :param value to check.
+    :return true is success.
+    """
+    @staticmethod
+    def is_readable(value):
+        return True if not value.__contains__("?") else False
 
     """
     this method extract rows except blank spaces.

@@ -87,6 +87,5 @@ class TestCollectionList(unittest.TestCase):
     still testing.
     """
     def test_reverse(self):
-        print (self.collection_list)
-        self.collection_list.reverse()
-        print (self.collection_list)
+        list_test = [1, 7, 3]
+        self.assertEqual(list_test.__str__(), self.collection_list.reverse())

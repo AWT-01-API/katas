@@ -4,8 +4,13 @@ python:
 
 
 # command to install dependencies
-  pip install requests
-  pip install properties
+
+install:
+- pip install requests
+- pip install jsonschema
+- pip install simplejson
+- pip install properties
+
 # command to run tests
 script:
   - sonar-scanner
